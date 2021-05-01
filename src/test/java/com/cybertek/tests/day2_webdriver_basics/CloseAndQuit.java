@@ -3,14 +3,15 @@ package com.cybertek.tests.day2_webdriver_basics;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class CloseAndQuit {
 
     public static void main(String[] args) throws InterruptedException {
 
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.firefoxdriver().setup();
 
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = new FirefoxDriver();
 
         driver.get("http://practice.cybertekschool.com");
 
@@ -22,7 +23,7 @@ public class CloseAndQuit {
         // normally we don't do this at the test case, test starts and finishes(close)
 
 
-       driver = new ChromeDriver(); // to open again tab web pade, to create new oject ,
+       driver = new FirefoxDriver(); // to open again tab web page, to create new oject ,
         // we want to same object name with the above the object for this we deleted the  <<<WebDriver>>>
 
         driver.get("http://practice.cybertekschool.com/open_new_tab");

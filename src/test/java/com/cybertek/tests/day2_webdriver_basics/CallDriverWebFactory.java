@@ -7,13 +7,11 @@ public class CallDriverWebFactory {
 
     public static void main(String[] args) {
 
-        WebDriver driver = WebDriverFactory.getDriver("firefox");// we can change with ("chrome");
+        WebDriver driver = WebDriverFactory.getDriver("opera");// we can change with ("chrome");
         driver.get("https://www.google.com");
 
         String title = driver.getTitle();
         System.out.println("title = " + title);
-
-
 
     }
 

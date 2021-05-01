@@ -3,7 +3,9 @@ package com.cybertek.utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
 
 import java.util.Locale;
 
@@ -17,21 +19,26 @@ public class WebDriverFactory {
     //name of the method: getDriver
 
 
-    public static WebDriver getDriver(String browserType){
+    public static WebDriver getDriver(String browserType) {
 
         WebDriver driver = null;
 
         //chrome,CHROME,ChrOme
-        switch (browserType.toLowerCase()){
+        switch (browserType.toLowerCase()) {
 
             case "chrome":
                 WebDriverManager.chromedriver().setup();
-                driver=new ChromeDriver();
+                driver = new ChromeDriver();
                 break;
 
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
-                driver=new FirefoxDriver();
+                driver = new FirefoxDriver();
+                break;
+
+            case "opera":
+                WebDriverManager.operadriver().setup();
+                driver = new OperaDriver();
                 break;
 
         }

@@ -20,7 +20,7 @@ public class linkTextandPartialLinkTextLocator {
         WebElement link4 = driver.findElement(By.partialLinkText("again"));// word should be unique in the whole text
         link4.click();
         Thread.sleep(3000);
-        //driver.quit();
+        driver.quit();
 
     }
 
