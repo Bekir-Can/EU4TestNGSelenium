@@ -6,30 +6,34 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class EbayHomeWork {
-
-    public static void main(String[] args) throws InterruptedException {
-
+    public static void main(String[] args) {
         WebDriver driver = WebDriverFactory.getDriver("chrome");
-        driver.get("https://www.amazon.com/");
+        driver.get("https://www.ebay.com");
         driver.manage().window().maximize();
 
-        WebElement searchBox = driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']"));
+        WebElement searchBox = driver.findElement(By.xpath("//input[@class='gh-tb ui-autocomplete-input']"));
         searchBox.sendKeys("selenium");
-        WebElement searchButton = driver.findElement(By.xpath("//div[@class='nav-search-submit nav-sprite']"));
-        searchButton.click();
-        WebElement value = driver.findElement(By.xpath("//span[contains(text(),'results for')]"));
-        value.getText();
-        String expectValue = "1-48 of 261 results for";
 
-        if (value.getText().equals(expectValue)){
+        WebElement searchButton = driver.findElement(By.xpath("//input[@class='btn btn-prim gh-spr']"));
+        searchButton.click();
+
+        WebElement text = driver.findElement(By.xpath("//h1[@class='srp-controls__count-heading']"));
+        System.out.println("text.getText() = " + text.getText());
+
+
+        System.out.println("driver.getTitle() = " + driver.getTitle());
+        String actualTitle = driver.getTitle();
+        String expectedTitle = "selenium";
+        if (actualTitle.contains(expectedTitle)){
             System.out.println("Pass");
 
-        }else {
-            System.out.println("False");
-            System.out.println("expectedResult = " + expectValue);
-            System.out.println("resultText = " + value.getText());
+        }else{
+            System.out.println("Fail");
+            System.out.println("ActualTitle= "+actualTitle);
+            System.out.println("ExpectedTitle= "+expectedTitle);
         }
-        Thread.sleep(3000);
-        driver.quit();
+
+
+            driver.quit();
     }
 }
