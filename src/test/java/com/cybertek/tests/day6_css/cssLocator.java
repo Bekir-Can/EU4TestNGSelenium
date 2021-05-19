@@ -13,6 +13,7 @@ public class cssLocator {
         WebDriver driver = WebDriverFactory.getDriver("chrome");
 
         driver.get("http://practice.cybertekschool.com/multiple_buttons");
+        driver.manage().window().maximize();
 
         WebElement dontClick = driver.findElement(By.cssSelector("#disappearing_button"));
 
@@ -20,6 +21,6 @@ public class cssLocator {
         Thread.sleep(2000);
         dontClick.click();
         Thread.sleep(2000);
-        driver.quit();
+        //driver.quit();
     }
 }
