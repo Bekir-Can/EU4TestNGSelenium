@@ -12,17 +12,19 @@ public class PopUpsAndAlerts {
     WebDriver driver;
 
     @BeforeMethod
-    public void setUp(){
+    public void setUp() {
 
         driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
 
     }
+
     @AfterMethod
     public void tearDown() throws InterruptedException {
         Thread.sleep(2000);
         //driver.quit();
     }
+
     @Test
     public void test1() {
 
@@ -35,6 +37,7 @@ public class PopUpsAndAlerts {
         driver.findElement(By.xpath("//span[.='No']")).click();
 
     }
+
     @Test
     public void test2() throws InterruptedException {
 

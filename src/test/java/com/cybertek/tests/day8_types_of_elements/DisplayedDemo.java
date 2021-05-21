@@ -25,7 +25,7 @@ public class DisplayedDemo {
         //TASK
         //verify username input is not display on the screen
 
-        Assert.assertFalse(userNameInput.isDisplayed(),"verify inputbox is NOT displayed");
+        Assert.assertFalse(userNameInput.isDisplayed(), "verify inputbox is NOT displayed");
 
         //click start button
         //find start button and click in one line
@@ -36,11 +36,12 @@ public class DisplayedDemo {
         Thread.sleep(6000); //wait until elements displayed on the screen
 
         //verify username displayed on the screen
-        Assert.assertTrue(userNameInput.isDisplayed(),"verify username inputbox is displayed");
+        Assert.assertTrue(userNameInput.isDisplayed(), "verify username inputbox is displayed");
 
 
         Thread.sleep(3000);
         driver.quit();
+
 
     }
 

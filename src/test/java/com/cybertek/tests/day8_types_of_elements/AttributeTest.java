@@ -48,11 +48,12 @@ public class AttributeTest {
         // So, get.Attribute("outerHTML");
         System.out.println(button2.getAttribute("outerHTML"));
         String outerHTML = button2.getAttribute("outerHTML");
+
         Assert.assertTrue(outerHTML.contains("Button 2"));
 
         //If we cannot solve to get three different ways of the text, we can use innerHTML,
         // So, get.Attribute("innerHTML");
-        System.out.println("Inner HTML: "+button2.getAttribute("innerHTML"));
+        System.out.println("Inner HTML: " + button2.getAttribute("innerHTML"));
 
         driver.quit();
 
