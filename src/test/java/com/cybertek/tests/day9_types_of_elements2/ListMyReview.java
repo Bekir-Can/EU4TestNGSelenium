@@ -46,6 +46,7 @@ public class ListMyReview {
         driver.findElement(By.xpath("//button[3]")).click();
         Thread.sleep(3000);
         alert.sendKeys("Selam");
+        System.out.println("alert.getText() = " + alert.getText());
         alert.accept();
 
 
