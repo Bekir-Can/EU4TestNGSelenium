@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 public class Homework_1_TestCase_1 {
     public static void main(String[] args) throws InterruptedException {
 
-        WebDriver driver= WebDriverFactory.getDriver("chrome");
+        WebDriver driver = WebDriverFactory.getDriver("chrome");
         driver.get("https://www.ebay.com/");
         driver.manage().window().maximize();
         Thread.sleep(3000);
