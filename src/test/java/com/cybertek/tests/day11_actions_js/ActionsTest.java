@@ -20,6 +20,7 @@ public class ActionsTest {
     @BeforeMethod
     public void setUp(){
         driver = WebDriverFactory.getDriver("chrome");
+        driver.manage().window().maximize();
 
     }
 

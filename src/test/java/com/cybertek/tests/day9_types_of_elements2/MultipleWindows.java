@@ -33,7 +33,7 @@ public class MultipleWindows {
 
         driver.findElement(By.partialLinkText("Click Here")).click();
 
-        System.out.println("Title before new window: " + driver.getTitle());
+        System.out.println("Title after new window: " + driver.getTitle());
 
         System.out.println("driver.getWindowHandle() = " + driver.getWindowHandle());
 
