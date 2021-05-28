@@ -16,7 +16,7 @@ public class JSEReview {
     @BeforeMethod
     public void setUp() {
         driver = WebDriverFactory.getDriver("chrome");
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();//if we dont max the window scroll up and down test does not work!!!!!
 
     }
 
@@ -44,7 +44,33 @@ public class JSEReview {
         WebElement inputBox = driver.findElement(By.cssSelector("#input-example>input"));
         JavascriptExecutor typeTextJS = (JavascriptExecutor) driver;
         String textIn = "Hello Disable Input";
-        typeTextJS.executeScript("arguments[0].setAttribute('valeu','"+textIn+"')",inputBox);
+        typeTextJS.executeScript("arguments[0].setAttribute('value','" + textIn + "')", inputBox);
 
     }
+
+    @Test
+    public void scrollDownAndUp() throws InterruptedException {
+
+        driver.get("http://practice.cybertekschool.com/infinite_scroll");
+        // driver.manage().window().maximize();//if we dont max the window scroll up and down test does not work!!!!!
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+        for (int i = 0; i < 10; i++) {
+            Thread.sleep(2000);
+            //  jse.executeScript("window.scrollBy(0,250)");
+            jse.executeScript("window.scrollBy(0,-250)");
+        }
+
+    }
+
+    @Test
+    public void scrollToElementDirectly() throws InterruptedException {
+        driver.get("https://www.amazon.com/");
+        WebElement englishButton = driver.findElement(By.id("icp-touch-link-language"));
+        Thread.sleep(2000);
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].scrollIntoView(true);", englishButton);
+
+    }
+
 }
