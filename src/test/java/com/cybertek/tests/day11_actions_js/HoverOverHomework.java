@@ -12,45 +12,26 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class HoverTestHomework {
+public class HoverOverHomework {
+
     WebDriver driver;
+
     @BeforeMethod
-    public void setUp(){
+    public void setUp() {
         driver = WebDriverFactory.getDriver("chrome");
+        driver.manage().window().maximize();
+
     }
+
     @AfterMethod
     public void tearDown() throws InterruptedException {
         Thread.sleep(2000);
         driver.quit();
     }
 
-    /* hover over each image in the web side verify
-     * verify each name: user text is displayed
-     * we should not located three image it will universal(loop if use  maybe) dynamically locate and dynamically
-     */
-
     @Test
-    public void test1() throws InterruptedException {
-        driver.get("http://practice.cybertekschool.com/hovers");
-        driver.manage().window().maximize();
+    public void oneImage() throws InterruptedException {
 
-        WebElement img1 = driver.findElement(By.xpath("//div[@class='figure']/child::img"));
-
-        Actions action1 = new Actions(driver);
-
-        Thread.sleep(2000);
-        action1.moveToElement(img1).perform();
-
-        WebElement text1 = driver.findElement(By.xpath("//h5[.='name: user1']"));
-
-        Assert.assertTrue(text1.isDisplayed(), "verify text 1 is displayed");
-        //Assert.assertEquals(text1.isDisplayed(),true); //the other way to verify
-        // We have to verify something everytime while we were testing software***
-
-
-        }
-    @Test
-    public void test2() throws InterruptedException {
         driver.get("http://practice.cybertekschool.com/hovers");
         driver.manage().window().maximize();
 
@@ -67,13 +48,8 @@ public class HoverTestHomework {
             WebElement text1 = driver.findElement(By.xpath(textXPath));
             System.out.println(textXPath);
             Assert.assertTrue(text1.isDisplayed(), "verify user "+i+" is displayed");
-            Assert.assertEquals(driver.findElement(By.xpath(textXPath)).getText(),"name: user"+(i),"Match the text");
-            System.out.println("(\"name user:\"+(i)) = " + ("name user" + (i)));
 
         }
 
-
     }
-
-    }
-
+}
