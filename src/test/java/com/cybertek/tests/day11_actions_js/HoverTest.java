@@ -15,7 +15,7 @@ public class HoverTest {
     WebDriver driver;
 
     @BeforeMethod
-    public void setUp(){
+    public void setUp() {
         driver = WebDriverFactory.getDriver("chrome");
 
     }
@@ -44,7 +44,7 @@ public class HoverTest {
 
         WebElement text1 = driver.findElement(By.xpath("//h5[.='name: user1']"));
 
-        Assert.assertTrue(text1.isDisplayed(),"verify text 1 is displayed");
+        Assert.assertTrue(text1.isDisplayed(), "verify text 1 is displayed");
 
     }
 
@@ -59,7 +59,7 @@ public class HoverTest {
 
         for (int i = 1; i <= 3; i++) {
 
-            String xpathImg = "(//img)["+i+"]";
+            String xpathImg = "(//img)[" + i + "]";
             WebElement img = driver.findElement(By.xpath(xpathImg));
             System.out.println(xpathImg);
 
@@ -67,22 +67,16 @@ public class HoverTest {
             Thread.sleep(1000);
             actions.moveToElement(img).perform();
 
-            String textXpath = "//h5[.='name: user"+i+"']";
+            String textXpath = "//h5[.='name: user" + i + "']";
             WebElement text1 = driver.findElement(By.xpath(textXpath));
             System.out.println(textXpath);
-            Assert.assertTrue(text1.isDisplayed(),"verify user "+i+" is displayed");
+            Assert.assertTrue(text1.isDisplayed(), "verify user " + i + " is displayed");
 
         }
 
 
-
-
-
-
-
-
-
-
+        /*Jamal gave the this homework end of the Recording Day 11 and
+        Jamal explains the solution of the homework starting in Recording Day 12*/
 
 
     }
